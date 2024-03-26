@@ -3,6 +3,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Noto_Sans_TC, Rubik } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const NotoSansTC = Noto_Sans_TC({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -49,6 +50,7 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} ${NotoSansTC.variable} ${RubikFont.variable}`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
