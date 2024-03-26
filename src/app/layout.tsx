@@ -30,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-TW">
+      <head>
+        <script
+          defer
+          src="https://analytics.us.umami.is/script.js"
+          data-website-id="5cc76b9a-0cdf-4441-a060-2edddbcf3017"
+        ></script>
+      </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${NotoSansTC.variable} ${RubikFont.variable}`}
       >
