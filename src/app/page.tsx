@@ -1,11 +1,5 @@
 import Image from "next/image";
-import {
-  SiTwitch,
-  SiPlurk,
-  SiDiscord,
-  SiYoutube,
-  SiGithub,
-} from "react-icons/si";
+import { SiTwitch, SiPlurk, SiDiscord, SiYoutube } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { RxCrumpledPaper } from "react-icons/rx";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
@@ -179,7 +173,7 @@ export default function Home() {
               </a>
             </div>
             {/* github */}
-            <div className="w-[15rem]">
+            {/* <div className="w-[15rem]">
               <a
                 className="group relative inline-flex w-full animate-shimmer items-center overflow-hidden rounded-lg bg-[linear-gradient(110deg,#0D1117,45%,#2A313C,55%,#0D1117)]  bg-[length:200%_100%] px-8 py-3 text-white shadow-[0_4px_14px_0_rgb(0,0,0,20%)]  transition-colors duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(80,80,80,30%)] active:bg-opacity-80"
                 href="https://github.com/SHUSHU010829"
@@ -205,7 +199,7 @@ export default function Home() {
                   <SiGithub /> GITHUB
                 </span>
               </a>
-            </div>
+            </div> */}
             {/* wavebox */}
             <div className="w-[15rem]">
               <a
