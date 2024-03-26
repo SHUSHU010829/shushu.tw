@@ -37,10 +37,13 @@ export default function RootLayout({
           src="https://analytics.us.umami.is/script.js"
           data-website-id="5cc76b9a-0cdf-4441-a060-2edddbcf3017"
         ></script>
-        <meta property="og:image" content="https://www.shushu.tw/api/static" />
+        <meta
+          property="og:image"
+          content="https://shushu-tw.vercel.app/api/og"
+        />
         <meta
           property="twitter:image"
-          content="https://www.shushu.tw/api/static"
+          content="https://shushu-tw.vercel.app/api/og"
         />
       </head>
       <body
