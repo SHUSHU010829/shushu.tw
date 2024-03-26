@@ -36,6 +36,14 @@ export default function RootLayout({
           src="https://analytics.us.umami.is/script.js"
           data-website-id="5cc76b9a-0cdf-4441-a060-2edddbcf3017"
         ></script>
+        <meta
+          property="og:image"
+          content="https://og-examples.vercel.sh/api/static"
+        />
+        <meta
+          property="twitter:image"
+          content="https://og-examples.vercel.sh/api/static"
+        />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${NotoSansTC.variable} ${RubikFont.variable}`}
