@@ -16,7 +16,8 @@ export async function GET() {
           justifyContent: "center",
           letterSpacing: "-.02em",
           fontWeight: 700,
-          background: "white",
+          background:
+            "radial-gradient(581px circle at 74.78% 59.33%, #b6cac8 0%, #d1cfc3 100%)",
         }}
       >
         <div
@@ -32,13 +33,15 @@ export async function GET() {
             style={{
               width: 24,
               height: 24,
-              background: "black",
+              borderRadius: "30px",
+              background: "#68775F",
             }}
           />
           <span
             style={{
               marginLeft: 8,
-              fontSize: 20,
+              fontSize: 24,
+              color: "#050316",
             }}
           >
             shushu.tw
@@ -49,18 +52,22 @@ export async function GET() {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
-            padding: "20px 50px",
+            padding: "5px 20px",
             margin: "0 42px",
-            fontSize: 40,
+            fontSize: 32,
             width: "auto",
-            maxWidth: 550,
+            maxWidth: 640,
             textAlign: "center",
-            backgroundColor: "black",
-            color: "white",
-            lineHeight: 1.4,
+            color: "#050316",
+            borderRadius: "3px",
+            background:
+              "linear-gradient(180deg,rgba(255,255,255,0) 0%, #DD835A 0%)",
           }}
         >
-          Find all links about ⬇️ SHUSHU
+          Find all links about{" "}
+          <span style={{ color: "#FFFCF5", paddingLeft: "8px", fontSize: 32 }}>
+            SHUSHU
+          </span>
         </div>
       </div>
     ),
