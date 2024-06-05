@@ -1,6 +1,5 @@
 import { SiTwitch, SiPlurk, SiDiscord, SiYoutube } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
-import { RxCrumpledPaper } from "react-icons/rx";
 
 export default function SocialLink() {
   return (
@@ -174,7 +173,7 @@ export default function SocialLink() {
               </a>
             </div> */}
       {/* wavebox */}
-      <div className="w-[15rem]">
+      {/* <div className="w-[15rem]">
         <a
           className="group relative inline-flex w-full animate-shimmer items-center overflow-hidden rounded-lg bg-[linear-gradient(110deg,#1d1e24,45%,#3B3D49,55%,#1d1e24)]  bg-[length:200%_100%] px-8 py-3 text-white shadow-[0_4px_14px_0_rgb(0,0,0,20%)]  transition-colors duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(80,80,80,30%)] active:bg-opacity-80"
           href="https://wavebox.me/wave/7g3xtuqdoqd2iuki/"
@@ -200,7 +199,7 @@ export default function SocialLink() {
             <RxCrumpledPaper /> WAVEBOX
           </span>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }
