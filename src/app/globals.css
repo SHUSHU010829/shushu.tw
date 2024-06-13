@@ -1,3 +1,51 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.drawBtn {
+  background: hsl(0, 100%, 73%);
+  color: white;
+  padding: 0.2em 1.5em;
+  border: none;
+  border-radius: 0.6em;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  box-shadow:
+    0 1px hsl(0, 100%, 75%),
+    0 2px hsl(0, 100%, 69%),
+    0 3px hsl(0, 100%, 68%),
+    0 4px hsl(0, 100%, 68%),
+    0 5px hsl(0, 100%, 68%),
+    0 6px hsl(0, 100%, 68%),
+    0 7px hsl(0, 100%, 68%),
+    0 8px hsl(0, 100%, 68%),
+    0 9px hsl(0, 100%, 68%),
+    0 10px hsl(0, 100%, 68%),
+    0 11px hsl(0, 100%, 68%),
+    0 12px hsl(0, 100%, 68%),
+    0 13px hsl(0, 100%, 68%),
+    0 14px hsl(0, 100%, 68%),
+    0 15px hsl(0, 100%, 68%),
+    0 16px hsl(0, 100%, 68%),
+    0 17px hsl(0, 100%, 68%),
+    0 18px hsl(0, 100%, 68%),
+    0 19px hsl(0, 100%, 68%),
+    0 20px hsl(0, 100%, 68%),
+    0 21px hsl(0, 100%, 68%),
+    0 22px hsl(0, 100%, 68%),
+    0 23px hsl(0, 100%, 68%),
+    0 23px 10px hsla(0, 0%, 0%, 0.6),
+    0 25px 50px hsla(0, 0%, 0%, 0.4);
+}
+
+.drawBtn:active {
+  background: hsl(0, 100%, 72%);
+  box-shadow: none;
+  text-shadow: none;
+  transform: translateY(25px);
+}
