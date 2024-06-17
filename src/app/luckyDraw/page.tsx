@@ -3,6 +3,7 @@ import History from "./components/history";
 import Setting from "./components/setting";
 import Banner from "./components/banner";
 import Footer from "./components/footer";
+import DrawButton from "./components/drawButton";
 
 export default function Index() {
   return (
@@ -11,6 +12,7 @@ export default function Index() {
         <Banner />
         <Prize />
         <History />
+        <DrawButton />
         <Setting />
       </div>
       <Footer />

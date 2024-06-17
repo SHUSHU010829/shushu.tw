@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetClose,
@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { FaceIcon, GearIcon, TrashIcon } from "@radix-ui/react-icons";
+import { GearIcon, TrashIcon } from "@radix-ui/react-icons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,6 +27,21 @@ export default function Setting() {
   const [theme, setTheme] = useState("");
   const [prizes, setPrizes] = useState("");
   const [participants, setParticipants] = useState("");
+
+  useEffect(() => {
+    const savedPrizes = localStorage.getItem("draw_prizes");
+    if (savedPrizes) {
+      setPrizes(savedPrizes);
+    }
+    const savedTheme = localStorage.getItem("draw_title");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+    const savedParticipants = localStorage.getItem("draw_participants");
+    if (savedParticipants) {
+      setParticipants(savedParticipants);
+    }
+  }, []);
 
   const handleThemeChange = (e: { target: { value: string } }) => {
     const value = e.target.value;
@@ -47,29 +62,22 @@ export default function Setting() {
     localStorage.setItem("draw_prizes", prizes);
     localStorage.setItem("draw_title", theme);
     localStorage.setItem("draw_participants", participants);
+    window.location.reload();
   };
 
   const handleDelete = () => {
     setTheme("");
     setPrizes("");
     setParticipants("");
-    localStorage.removeItem("prizes");
+    localStorage.removeItem("draw_prizes");
     localStorage.removeItem("draw_title");
     localStorage.removeItem("draw_participants");
     localStorage.removeItem("draw_history");
+    window.location.reload();
   };
 
-  const handleDraw = () => {};
-
   return (
-    <div className="flex w-full items-center justify-center gap-3 pt-10">
-      <button
-        className="flex transform items-center gap-2 rounded-md border border-primary bg-primary px-4 py-2 text-sm text-white transition duration-200 hover:-translate-y-1 hover:shadow-md"
-        onClick={handleDraw}
-      >
-        <div>抽獎</div>
-        <FaceIcon />
-      </button>
+    <div className="flex w-full items-center justify-center gap-3 pt-5">
       <Sheet>
         <SheetTrigger asChild>
           <button className="flex transform items-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm text-neutral-500 transition duration-200 hover:-translate-y-1 hover:shadow-md">
