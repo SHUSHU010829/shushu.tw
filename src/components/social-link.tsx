@@ -120,7 +120,7 @@ export default function SocialLink() {
       <div className="w-[15rem]">
         <a
           className="group relative inline-flex w-full animate-shimmer items-center overflow-hidden rounded-lg bg-[linear-gradient(110deg,#5865F2,45%,#7781F3,55%,#5865F2)]  bg-[length:200%_100%] px-8 py-3 text-white shadow-[0_4px_14px_0_rgb(0,0,0,20%)]  transition-colors duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(80,80,80,30%)] active:bg-opacity-80"
-          href="https://discord.gg/WVuqdscbkB"
+          href="https://discord.gg/shushu010829"
         >
           <span className="absolute -start-full transition-all group-hover:start-4">
             <svg
