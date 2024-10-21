@@ -1,20 +1,15 @@
 import axios from "axios";
 
-function generateApiUrl(type: string): string {
-  const baseUrl = "https://shustream.zeabur.app";
-  return `${baseUrl}/${type}`;
-}
-
 export async function getAllMsg() {
-  const type = "messageBoard";
-  const url = generateApiUrl(type);
-
   const requestData = {};
 
   try {
-    const response = await axios.get(url, {
-      params: requestData,
-    });
+    const response = await axios.get(
+      "https://shustream.zeabur.app/messageBoard",
+      {
+        params: requestData,
+      }
+    );
 
     return response;
   } catch (error: unknown) {
@@ -27,15 +22,15 @@ export async function getAllMsg() {
 }
 
 export async function createMsg(content: string) {
-  const type = "messageBoard";
-  const url = generateApiUrl(type);
-
   const requestData = {
     content,
   };
 
   try {
-    const response = await axios.post(url, requestData);
+    const response = await axios.post(
+      "https://shustream.zeabur.app/messageBoard",
+      requestData
+    );
     return response;
   } catch (error) {
     if (axios.isAxiosError(error)) {
