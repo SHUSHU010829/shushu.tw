@@ -9,13 +9,19 @@ export default function Home() {
       {/* background */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       {/* content */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 py-10">
         <AskBox />
         <SocialLink
           href="https://www.twitch.tv/shushu010829"
           icon={<SiTwitch />}
           label="TWITCH"
           gradient="bg-[linear-gradient(110deg,#6441a5,45%,#7853BD,55%,#6441a5)]"
+        />
+        <SocialLink
+          href="https://discord.gg/shushu010829"
+          icon={<SiDiscord />}
+          label="DISCORD"
+          gradient="bg-[linear-gradient(110deg,#5865F2,45%,#7781F3,55%,#5865F2)]"
         />
         <SocialLink
           href="https://www.youtube.com/@SHUSHU0829"
@@ -40,12 +46,6 @@ export default function Home() {
           icon={<SiPlurk />}
           label="PLURK"
           gradient="bg-[linear-gradient(110deg,#ff574c,45%,#FF796F,55%,#ff574c)]"
-        />
-        <SocialLink
-          href="https://discord.gg/shushu010829"
-          icon={<SiDiscord />}
-          label="DISCORD"
-          gradient="bg-[linear-gradient(110deg,#5865F2,45%,#7781F3,55%,#5865F2)]"
         />
         <p className="text-center text-xs">&copy; 2024 SHUSHU</p>
       </div>
