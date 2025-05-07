@@ -39,16 +39,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <head>
-        <script
-          defer
-          src="https://analytics.us.umami.is/script.js"
-          data-website-id="5cc76b9a-0cdf-4441-a060-2edddbcf3017"
-        ></script>
-        <script
-          defer
-          data-domain="shushu.tw"
-          src="https://shuplausible.zeabur.app/js/script.js"
-        ></script>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="b99dfb23-305b-4a3a-8310-273fad09daa6"></script>
         <meta name="twitter:card" content="summary_large_image"></meta>
         <meta property="twitter:domain" content="shushu.tw"></meta>
         <meta property="twitter:url" content="https://www.shushu.tw"></meta>
