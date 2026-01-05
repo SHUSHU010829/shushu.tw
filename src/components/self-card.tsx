@@ -14,13 +14,13 @@ export default function SelfCard() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <BackgroundGradient className="relative flex flex-col items-start rounded-lg bg-dark overflow-hidden">
-        <div className="h-[15rem] w-full rounded-tl-lg rounded-tr-lg bg-primary-light relative overflow-hidden">
+        <div className="h-[24rem] w-full rounded-tl-lg rounded-tr-lg bg-primary-light relative overflow-hidden">
           <Image
             src="/images/me.png"
             alt="me"
             width={600}
             height={600}
-            className={`transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
+            className={`object-cover object-top transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
           />
           {/* Status Badge */}
           <div className="absolute top-3 right-3 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg">
