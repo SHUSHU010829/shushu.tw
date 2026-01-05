@@ -1,6 +1,7 @@
 "use client";
 
 import AskBox from "@/components/ask-box";
+import SelfCard from "@/components/self-card";
 import SocialLink from "@/components/social-link";
 import { SiTwitch, SiPlurk, SiDiscord, SiYoutube } from "react-icons/si";
 import { FaXTwitter, FaBluesky } from "react-icons/fa6";
@@ -68,60 +69,64 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex flex-col gap-6 py-10 px-4 w-full max-w-md lg:max-w-5xl xl:max-w-6xl"
+        className="flex flex-col gap-8 py-10 px-4 w-full max-w-md lg:max-w-3xl"
       >
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 w-full">
-          {/* Left Column - Profile Section (Desktop) / Top Section (Mobile) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full lg:w-[400px] lg:shrink-0 lg:sticky lg:top-10 lg:self-start"
-          >
-            <AskBox />
-          </motion.div>
+        {/* Profile Card Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <SelfCard />
+        </motion.div>
 
-          {/* Right Column - Social Links */}
-          <div className="w-full lg:flex-1 flex flex-col gap-6">
-            {/* Divider */}
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="relative flex items-center justify-center my-2"
-            >
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
-              </div>
-              <div className="relative bg-background dark:bg-slate-900 px-4">
-                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 tracking-wider">SOCIAL LINKS</span>
-              </div>
-            </motion.div>
-
-            {/* Social Links Grid - responsive columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {socialLinks.map((link, index) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.6 + index * 0.1,
-                    ease: "easeOut",
-                  }}
-                >
-                  <SocialLink
-                    href={link.href}
-                    icon={link.icon}
-                    label={link.label}
-                    gradient={link.gradient}
-                  />
-                </motion.div>
-              ))}
-            </div>
+        {/* Divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="relative flex items-center justify-center my-2"
+        >
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
           </div>
+          <div className="relative bg-background dark:bg-slate-900 px-4">
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 tracking-wider">SOCIAL LINKS</span>
+          </div>
+        </motion.div>
+
+        {/* Social Links Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {socialLinks.map((link, index) => (
+            <motion.div
+              key={link.label}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.6 + index * 0.1,
+                ease: "easeOut",
+              }}
+            >
+              <SocialLink
+                href={link.href}
+                icon={link.icon}
+                label={link.label}
+                gradient={link.gradient}
+              />
+            </motion.div>
+          ))}
         </div>
+
+        {/* Ask Box - Special Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          className="md:col-span-2"
+        >
+          <AskBox />
+        </motion.div>
 
         {/* Footer */}
         <motion.p
