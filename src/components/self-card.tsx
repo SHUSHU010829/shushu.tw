@@ -62,8 +62,11 @@ export default function SelfCard() {
               <div className="text-sm font-bold text-background mt-0.5">Active</div>
             </div>
             <div className="bg-slate-700/50 rounded-lg p-2 text-center">
-              <div className="text-xs text-slate-400">Content</div>
-              <div className="text-sm font-bold text-background mt-0.5">Daily</div>
+              <div className="text-xs text-slate-400">Streaming</div>
+              <div className="text-sm font-bold text-background mt-0.5 flex items-center justify-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                Live
+              </div>
             </div>
           </div>
         </div>
