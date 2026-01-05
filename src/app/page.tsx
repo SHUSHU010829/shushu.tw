@@ -68,21 +68,21 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex flex-col gap-6 py-10 px-4 w-full max-w-md lg:max-w-4xl"
+        className="flex flex-col gap-6 py-10 px-4 w-full max-w-md lg:max-w-5xl xl:max-w-6xl"
       >
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 w-full">
           {/* Left Column - Profile Section (Desktop) / Top Section (Mobile) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full lg:w-1/3 lg:sticky lg:top-10 lg:self-start"
+            className="w-full lg:w-[400px] lg:shrink-0 lg:sticky lg:top-10 lg:self-start"
           >
             <AskBox />
           </motion.div>
 
           {/* Right Column - Social Links */}
-          <div className="w-full lg:w-2/3 flex flex-col gap-6">
+          <div className="w-full lg:flex-1 flex flex-col gap-6">
             {/* Divider */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -98,8 +98,8 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Social Links Grid - 2 columns on large screens */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* Social Links Grid - responsive columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {socialLinks.map((link, index) => (
                 <motion.div
                   key={link.label}
