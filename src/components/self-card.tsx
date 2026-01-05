@@ -43,32 +43,6 @@ export default function SelfCard() {
             </svg>
             shushu90829@gmail.com
           </div>
-
-          {/* Bio Section */}
-          <div className="mt-2 pt-3 border-t border-slate-600">
-            <p className="text-xs text-slate-400 leading-relaxed">
-              創作者 · 遊戲實況主 · 內容分享者
-            </p>
-          </div>
-
-          {/* Social Stats */}
-          <div className={`grid grid-cols-3 gap-2 mt-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-80'}`}>
-            <div className="bg-slate-700/50 rounded-lg p-2 text-center">
-              <div className="text-xs text-slate-400">Platforms</div>
-              <div className="text-sm font-bold text-background mt-0.5">6+</div>
-            </div>
-            <div className="bg-slate-700/50 rounded-lg p-2 text-center">
-              <div className="text-xs text-slate-400">Community</div>
-              <div className="text-sm font-bold text-background mt-0.5">Active</div>
-            </div>
-            <div className="bg-slate-700/50 rounded-lg p-2 text-center">
-              <div className="text-xs text-slate-400">Streaming</div>
-              <div className="text-sm font-bold text-background mt-0.5 flex items-center justify-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-                Live
-              </div>
-            </div>
-          </div>
         </div>
       </BackgroundGradient>
     </div>
