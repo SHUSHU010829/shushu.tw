@@ -99,7 +99,7 @@ export default function Setting() {
               </label>
               <input
                 id="theme"
-                className="mt-1 h-full w-full resize-none rounded-lg border-2 border-secondary p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
+                className="border-secondary mt-1 h-full w-full resize-none rounded-lg border-2 p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
                 value={theme}
                 onChange={handleThemeChange}
               />
@@ -113,7 +113,7 @@ export default function Setting() {
               </label>
               <textarea
                 id="prizes"
-                className="mt-1 h-full w-full resize-none rounded-lg border-2 border-secondary p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
+                className="border-secondary mt-1 h-full w-full resize-none rounded-lg border-2 p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
                 placeholder="獎品輸入方式：品項名稱, 數量。未輸入數量預設為 1"
                 value={prizes}
                 onChange={handlePrizesChange}
@@ -128,7 +128,7 @@ export default function Setting() {
               </label>
               <textarea
                 id="participants"
-                className="mt-1 h-full w-full resize-none rounded-lg border-2 border-secondary p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
+                className="border-secondary mt-1 h-full w-full resize-none rounded-lg border-2 p-2 align-top shadow-sm focus:border-primary focus:outline-primary focus:ring-primary sm:text-sm"
                 placeholder="換行分隔每個抽選對象：名稱, 數量。未輸入數量預設為 1"
                 value={participants}
                 onChange={handleParticipantsChange}

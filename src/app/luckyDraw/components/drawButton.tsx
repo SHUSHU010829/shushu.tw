@@ -143,7 +143,7 @@ export default function DrawButton() {
           <AlertDialogFooter>
             <AlertDialogAction
               onClick={handleClose}
-              className="w-full bg-secondary hover:bg-opacity-80 hover:duration-200"
+              className="bg-secondary w-full hover:bg-opacity-80 hover:duration-200"
             >
               恭喜它
             </AlertDialogAction>

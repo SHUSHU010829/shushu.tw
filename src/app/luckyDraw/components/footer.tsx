@@ -10,7 +10,7 @@ export default function Footer() {
       <div>
         © 2024{" "}
         <span
-          className=" cursor-pointer text-secondary transition duration-200 hover:text-primary"
+          className=" text-secondary cursor-pointer transition duration-200 hover:text-primary"
           onClick={() => router.push("/")}
         >
           SHUSHU
