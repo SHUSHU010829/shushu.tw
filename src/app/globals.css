@@ -2,6 +2,69 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  :root {
+    /* === Cyberpunk Surface Tokens === */
+    --surface-void: 0 0% 4%;
+    --surface-panel: 0 0% 7%;
+    --surface-panel-2: 0 0% 10%;
+    --surface-input: 0 0% 12%;
+    --surface-tile: 0 0% 8%;
+
+    /* === Signal / Accent Colors === */
+    --signal-live: 152 100% 52%;
+    --signal-alert: 0 100% 62%;
+    --signal-sub: 271 91% 65%;
+    --signal-cheer: 45 100% 58%;
+    --signal-tier2: 207 100% 58%;
+    --signal-tier3: 271 91% 65%;
+    --signal-raid: 325 100% 62%;
+    --signal-hype: 45 100% 58%;
+
+    /* === Border Tokens === */
+    --border-faint: 0 0% 16%;
+    --border-subtle: 0 0% 24%;
+    --border-strong: 0 0% 40%;
+
+    /* === Text Tokens === */
+    --text-primary: 152 100% 52%;
+    --text-body: 0 0% 88%;
+    --text-muted: 0 0% 55%;
+    --text-subtle: 0 0% 40%;
+    --text-dim: 0 0% 28%;
+
+    /* === Radius Tokens === */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+
+    /* === Motion Tokens === */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* === shadcn/ui Compatibility Tokens === */
+    --background: var(--surface-void);
+    --foreground: var(--text-body);
+    --primary: var(--signal-live);
+    --primary-foreground: 0 0% 4%;
+    --secondary: var(--surface-panel-2);
+    --secondary-foreground: var(--text-body);
+    --muted: var(--surface-panel);
+    --muted-foreground: var(--text-muted);
+    --accent: var(--surface-panel-2);
+    --accent-foreground: var(--text-body);
+    --destructive: var(--signal-alert);
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--border-faint);
+    --input: var(--surface-input);
+    --ring: 152 100% 52% / 0.3;
+    --radius: 4px;
+    --card: var(--surface-tile);
+    --card-foreground: var(--text-body);
+    --popover: var(--surface-panel);
+    --popover-foreground: var(--text-body);
+  }
+}
+
 .drawBtn {
   background: hsl(0, 100%, 73%);
   color: white;

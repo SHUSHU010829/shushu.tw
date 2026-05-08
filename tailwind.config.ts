@@ -14,16 +14,33 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#68775F",
-        "primary-light": "#E5E7D5",
-        secondary: "#DD835A",
-        "secondary-light": "#B3ABBC",
-        background: "#FFFCF5",
-        "text-primary": "#050316",
-        dark: "#2C2D30",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        "surface-void": "hsl(var(--surface-void))",
+        "surface-panel": "hsl(var(--surface-panel))",
+        "surface-panel-2": "hsl(var(--surface-panel-2))",
+        "surface-input": "hsl(var(--surface-input))",
+        "surface-tile": "hsl(var(--surface-tile))",
+        "signal-live": "hsl(var(--signal-live))",
+        "signal-alert": "hsl(var(--signal-alert))",
+        "signal-sub": "hsl(var(--signal-sub))",
+        "signal-cheer": "hsl(var(--signal-cheer))",
+        "signal-tier2": "hsl(var(--signal-tier2))",
+        "signal-tier3": "hsl(var(--signal-tier3))",
+        "signal-raid": "hsl(var(--signal-raid))",
+        "signal-hype": "hsl(var(--signal-hype))",
+        "border-faint": "hsl(var(--border-faint))",
+        "border-subtle": "hsl(var(--border-subtle))",
+        "border-strong": "hsl(var(--border-strong))",
+        "text-primary": "hsl(var(--text-primary))",
+        "text-body": "hsl(var(--text-body))",
+        "text-muted": "hsl(var(--text-muted))",
+        "text-subtle": "hsl(var(--text-subtle))",
+        "text-dim": "hsl(var(--text-dim))",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        mono: ["var(--font-space-mono)", "Space Mono", "var(--font-geist-mono)", "ui-monospace", "monospace"],
         notoSans: ["var(--font-noto-sans-tc)"],
         rubik: ["var(--font-rubik)"],
       },
@@ -34,6 +51,10 @@ const config: Config = {
         "meteor-effect": "meteor 5s linear infinite",
         shimmer: "shimmer 2s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        "live-ping": "live-ping 1.5s ease-out infinite",
+        "pulse-red": "pulse-red 1.2s ease-in-out infinite",
+        "scanline-drift": "scanline-drift 8s linear infinite",
+        "signal-glitch": "signal-glitch 0.15s steps(2) infinite",
       },
       keyframes: {
         meteor: {
@@ -45,34 +66,39 @@ const config: Config = {
           },
         },
         shimmer: {
-          from: {
-            backgroundPosition: "0 0",
-          },
-          to: {
-            backgroundPosition: "-200% 0",
-          },
+          from: { backgroundPosition: "0 0" },
+          to: { backgroundPosition: "-200% 0" },
         },
         "shine-pulse": {
-          "0%": {
-            "background-position": "0% 0%",
-          },
-          "50%": {
-            "background-position": "100% 100%",
-          },
-          to: {
-            "background-position": "0% 0%",
-          },
+          "0%": { "background-position": "0% 0%" },
+          "50%": { "background-position": "100% 100%" },
+          to: { "background-position": "0% 0%" },
         },
         "border-beam": {
-          "100%": {
-            "offset-distance": "100%",
-          },
+          "100%": { "offset-distance": "100%" },
+        },
+        "live-ping": {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "70%": { transform: "scale(2.2)", opacity: "0" },
+          "100%": { transform: "scale(2.2)", opacity: "0" },
+        },
+        "pulse-red": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.3" },
+        },
+        "scanline-drift": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(3px)" },
+        },
+        "signal-glitch": {
+          "0%": { textShadow: "2px 0 #ff00ff, -2px 0 #00ffff" },
+          "50%": { textShadow: "-2px 0 #ff00ff, 2px 0 #00ffff" },
+          "100%": { textShadow: "2px 0 #ff00ff, -2px 0 #00ffff" },
         },
       },
     },
   },
   plugins: [
-    addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
@@ -97,16 +123,5 @@ const config: Config = {
     },
   ],
 };
-
-function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
 
 export default config;

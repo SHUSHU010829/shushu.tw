@@ -33,7 +33,7 @@ export default function History() {
           {history.length > 0 ? (
             history.map((entry, index) => (
               <div key={index} className="flex items-center gap-2">
-                <div className="rounded bg-primary-light p-2 text-sm font-bold">
+                <div className="bg-primary-light rounded p-2 text-sm font-bold">
                   {entry.prize}
                 </div>
                 {entry.winner}

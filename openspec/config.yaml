@@ -1,0 +1,39 @@
+schema: spec-driven
+
+context: |
+  ## Project: shushu.tw — Cyberpunk Now Page
+
+  Tech stack: Next.js 14.2 App Router, React 18, TypeScript 5, Tailwind CSS 3.4,
+  Framer Motion 11, SWR (adding), shadcn/ui (Radix UI primitives), axios
+
+  Architecture: Single-page app at `/` (main now-page) + `/luckyDraw` (independent sub-app).
+  API routes live under `src/app/api/`. Client components use "use client" directive.
+  Path alias `@/` maps to `src/`.
+
+  Design system: Cyberpunk HUD aesthetic. Primary color `#00FF87` (mint). Dark background
+  `rgba(10,20,14,0.95)`. Monospace font: Space Mono. All colors via CSS custom properties
+  (`--surface-*`, `--signal-*`, `--border-*`, `--text-*`). Tokens defined in
+  `src/app/globals.css` `:root`.
+
+  Conventions:
+  - File names: kebab-case (`hud-header.tsx`, `use-tpe-clock.ts`)
+  - Components: PascalCase exports, one component per file
+  - Colors: never hardcode hex in components — always use `var(--token-name)`
+  - Uppercase HUD labels: Space Mono, letter-spacing 0.22em (e.g. `// STREAM_STATUS`)
+  - Chinese body text: Noto Sans TC. English labels/data: Space Mono
+
+  Constraints:
+  - `/luckyDraw` sub-app visual style MUST NOT change — `.drawBtn` red button must stay identical
+  - Secrets (Twitch, Spotify, GitHub keys) NEVER exposed to client — all behind Route Handlers
+  - WHISPER message API endpoint: `https://shustream.zeabur.app/messageBoard` (existing external backend)
+  - Each module must fail independently — Twitch down must not break Channels grid
+
+rules:
+  tasks:
+    - Break tasks into chunks completable in 1-3 hours
+    - Order by dependency (blocking tasks first)
+    - Every task must have a clear "done" condition
+  specs:
+    - Use SHALL for normative requirements (not should/may)
+    - Every Requirement needs at least one Scenario
+    - Scenarios use exactly 4 hashtags (####)
