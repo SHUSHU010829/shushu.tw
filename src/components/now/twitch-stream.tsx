@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTwitchStream } from "@/hooks/use-twitch-stream";
 import { PanelCard } from "@/components/hud/panel-card";
 import { HudLabel } from "@/components/hud/hud-label";
@@ -22,6 +23,11 @@ function LiveView({
   viewerCount: number;
   startedAt: string;
 }) {
+  const [parentHost, setParentHost] = useState<string | null>(null);
+  useEffect(() => {
+    setParentHost(window.location.hostname);
+  }, []);
+
   return (
     <div className="relative overflow-hidden rounded-[var(--radius-md)]">
       {/* CRT corner accents */}
@@ -50,12 +56,14 @@ function LiveView({
 
       {/* Twitch iframe — hidden on mobile */}
       <div className="hidden aspect-video w-full bg-black md:block">
-        <iframe
-          src="https://player.twitch.tv/?channel=shushu010829&parent=shushu.tw&parent=localhost&autoplay=false"
-          className="h-full w-full"
-          allowFullScreen
-          title="Twitch stream"
-        />
+        {parentHost ? (
+          <iframe
+            src={`https://player.twitch.tv/?channel=shushu010829&parent=${parentHost}&autoplay=false`}
+            className="h-full w-full"
+            allowFullScreen
+            title="Twitch stream"
+          />
+        ) : null}
       </div>
 
       {/* Mobile: show CTA instead of iframe */}
