@@ -20,15 +20,32 @@ const SpaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 
+const SITE_DESCRIPTION =
+  "SHUSHU 的個人主控台 — Twitch 直播狀態、頻道連結、社群資訊與留言室，一個頁面找到所有關於 SHUSHU 的東西。";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shushu.tw"),
   title: "SHUSHU.SYS // SHUSHU",
-  description: "ABOUT SHUSHU.",
+  description: SITE_DESCRIPTION,
   openGraph: {
     title: "SHUSHU.SYS // SHUSHU",
-    description: "ABOUT SHUSHU.",
+    description: SITE_DESCRIPTION,
     type: "website",
     url: "https://shushu.tw",
-    images: "https://shushu-tw.vercel.app/api/og",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "SHUSHU.SYS",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SHUSHU.SYS // SHUSHU",
+    description: SITE_DESCRIPTION,
+    images: ["/api/og"],
   },
 };
 
@@ -45,15 +62,6 @@ export default function RootLayout({
           src="https://cloud.umami.is/script.js"
           data-website-id="b99dfb23-305b-4a3a-8310-273fad09daa6"
         ></script>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="shushu.tw" />
-        <meta property="twitter:url" content="https://www.shushu.tw" />
-        <meta name="twitter:title" content="SHUSHU.SYS // SHUSHU" />
-        <meta name="twitter:description" content="ABOUT SHUSHU." />
-        <meta
-          name="twitter:image"
-          content="https://shushu-tw.vercel.app/api/og"
-        />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${NotoSansTC.variable} ${SpaceMono.variable}`}
