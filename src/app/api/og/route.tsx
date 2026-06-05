@@ -23,21 +23,9 @@ export async function GET() {
           height: "100%",
           width: "100%",
           background: VOID,
-          fontFamily: "monospace",
           position: "relative",
         }}
       >
-        {/* CRT scanlines overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(0,255,135,0.04) 2px, rgba(0,255,135,0.04) 3px)",
-            display: "flex",
-          }}
-        />
-
         {/* HUD header */}
         <div
           style={{
@@ -50,45 +38,48 @@ export async function GET() {
             borderBottom: `1px solid ${BORDER_FAINT}`,
           }}
         >
-          <span
+          <div
             style={{
+              display: "flex",
               fontSize: 16,
               letterSpacing: "0.22em",
               color: TEXT_MUTED,
             }}
           >
             SHUSHU
-          </span>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div
               style={{
+                display: "flex",
                 width: 10,
                 height: 10,
                 borderRadius: 5,
                 background: LIVE,
-                boxShadow: `0 0 12px ${LIVE}`,
-                display: "flex",
+                marginRight: 10,
               }}
             />
-            <span
+            <div
               style={{
+                display: "flex",
                 fontSize: 16,
                 letterSpacing: "0.22em",
                 color: TEXT_MUTED,
               }}
             >
               ONLINE
-            </span>
+            </div>
           </div>
-          <span
+          <div
             style={{
+              display: "flex",
               fontSize: 16,
               letterSpacing: "0.14em",
               color: TEXT_MUTED,
             }}
           >
             TPE // 24:00:00
-          </span>
+          </div>
         </div>
 
         {/* Body */}
@@ -96,7 +87,6 @@ export async function GET() {
           style={{
             display: "flex",
             flex: 1,
-            position: "relative",
             padding: 48,
           }}
         >
@@ -115,7 +105,7 @@ export async function GET() {
             }}
           >
             {/* Corner brackets */}
-            <span
+            <div
               style={{
                 position: "absolute",
                 top: -2,
@@ -127,7 +117,7 @@ export async function GET() {
                 display: "flex",
               }}
             />
-            <span
+            <div
               style={{
                 position: "absolute",
                 top: -2,
@@ -139,7 +129,7 @@ export async function GET() {
                 display: "flex",
               }}
             />
-            <span
+            <div
               style={{
                 position: "absolute",
                 bottom: -2,
@@ -151,7 +141,7 @@ export async function GET() {
                 display: "flex",
               }}
             />
-            <span
+            <div
               style={{
                 position: "absolute",
                 bottom: -2,
@@ -172,30 +162,31 @@ export async function GET() {
                 left: 20,
                 display: "flex",
                 alignItems: "center",
-                gap: 8,
                 background: "rgba(0,0,0,0.6)",
                 padding: "4px 10px",
                 borderRadius: 3,
               }}
             >
-              <span
+              <div
                 style={{
+                  display: "flex",
                   width: 8,
                   height: 8,
                   borderRadius: 4,
                   background: ALERT,
-                  display: "flex",
+                  marginRight: 8,
                 }}
               />
-              <span
+              <div
                 style={{
+                  display: "flex",
                   fontSize: 12,
                   letterSpacing: "0.25em",
                   color: "#ffffff",
                 }}
               >
                 REC
-              </span>
+              </div>
             </div>
 
             {/* Top-right module label */}
@@ -205,19 +196,12 @@ export async function GET() {
                 top: 20,
                 right: 20,
                 display: "flex",
-                alignItems: "center",
-                gap: 8,
+                fontSize: 12,
+                letterSpacing: "0.25em",
+                color: TEXT_SUBTLE,
               }}
             >
-              <span
-                style={{
-                  fontSize: 12,
-                  letterSpacing: "0.25em",
-                  color: TEXT_SUBTLE,
-                }}
-              >
-                MODULE_01 // PROFILE
-              </span>
+              MODULE_01 // PROFILE
             </div>
 
             {/* Label */}
@@ -225,42 +209,61 @@ export async function GET() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 12,
                 marginBottom: 28,
               }}
             >
-              <span
+              <div
                 style={{
                   display: "flex",
                   width: 28,
                   height: 1,
                   background: LIVE,
+                  marginRight: 12,
                 }}
               />
-              <span
+              <div
                 style={{
+                  display: "flex",
                   fontSize: 14,
                   letterSpacing: "0.35em",
                   color: LIVE,
                 }}
               >
                 SYSTEM_BROADCAST
-              </span>
+              </div>
             </div>
 
             {/* Title */}
             <div
               style={{
                 display: "flex",
-                fontSize: 96,
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-                color: TEXT_BODY,
+                alignItems: "baseline",
                 lineHeight: 1,
               }}
             >
-              SHUSHU
-              <span style={{ color: LIVE }}>.SYS</span>
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: 96,
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  color: TEXT_BODY,
+                }}
+              >
+                SHUSHU
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: 48,
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  color: LIVE,
+                  marginLeft: 8,
+                }}
+              >
+                .SYS
+              </div>
             </div>
 
             {/* Subtitle */}
@@ -273,7 +276,7 @@ export async function GET() {
                 color: TEXT_MUTED,
               }}
             >
-              &gt; FIND_ALL_LINKS --about SHUSHU
+              {"> FIND_ALL_LINKS --about SHUSHU"}
             </div>
 
             {/* Bottom meta row */}
@@ -282,20 +285,28 @@ export async function GET() {
                 display: "flex",
                 marginTop: 40,
                 alignItems: "center",
-                gap: 16,
                 fontSize: 16,
                 letterSpacing: "0.18em",
                 color: TEXT_SUBTLE,
               }}
             >
-              <span style={{ color: LIVE }}>●</span>
-              <span>TWITCH</span>
-              <span>·</span>
-              <span>YOUTUBE</span>
-              <span>·</span>
-              <span>SOCIAL</span>
-              <span>·</span>
-              <span>SHUSHU.TW</span>
+              <div
+                style={{
+                  display: "flex",
+                  width: 8,
+                  height: 8,
+                  borderRadius: 4,
+                  background: LIVE,
+                  marginRight: 16,
+                }}
+              />
+              <div style={{ display: "flex", marginRight: 16 }}>TWITCH</div>
+              <div style={{ display: "flex", marginRight: 16 }}>·</div>
+              <div style={{ display: "flex", marginRight: 16 }}>YOUTUBE</div>
+              <div style={{ display: "flex", marginRight: 16 }}>·</div>
+              <div style={{ display: "flex", marginRight: 16 }}>SOCIAL</div>
+              <div style={{ display: "flex", marginRight: 16 }}>·</div>
+              <div style={{ display: "flex" }}>SHUSHU.TW</div>
             </div>
           </div>
         </div>
