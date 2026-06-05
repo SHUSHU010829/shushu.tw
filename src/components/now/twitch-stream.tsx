@@ -29,7 +29,7 @@ function LiveView({
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-[var(--radius-md)]">
+    <div className="relative mx-auto w-full overflow-hidden rounded-[var(--radius-md)] md:max-w-[860px]">
       {/* CRT corner accents */}
       <span className="absolute left-0 top-0 z-10 h-3 w-3 border-l-2 border-t-2 border-[hsl(var(--signal-live))]" />
       <span className="absolute right-0 top-0 z-10 h-3 w-3 border-r-2 border-t-2 border-[hsl(var(--signal-live))]" />
