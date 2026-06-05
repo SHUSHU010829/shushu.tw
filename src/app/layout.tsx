@@ -24,14 +24,14 @@ const SITE_DESCRIPTION =
   "SHUSHU 的個人主控台 — Twitch 直播狀態、頻道連結、社群資訊與留言室，一個頁面找到所有關於 SHUSHU 的東西。";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shushu.tw"),
+  metadataBase: new URL("https://www.shushu.tw"),
   title: "SHUSHU.SYS // SHUSHU",
   description: SITE_DESCRIPTION,
   openGraph: {
     title: "SHUSHU.SYS // SHUSHU",
     description: SITE_DESCRIPTION,
     type: "website",
-    url: "https://shushu.tw",
+    url: "https://www.shushu.tw",
     images: [
       {
         url: "/api/og",
