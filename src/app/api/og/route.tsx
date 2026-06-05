@@ -255,10 +255,11 @@ export async function GET() {
               <div
                 style={{
                   display: "flex",
-                  fontSize: 96,
+                  fontSize: 48,
                   fontWeight: 700,
                   letterSpacing: "-0.02em",
                   color: LIVE,
+                  marginLeft: 8,
                 }}
               >
                 .SYS
