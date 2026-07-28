@@ -13,7 +13,7 @@ export function BibiFeatureCard({ feature }: { feature: BibiFeature }) {
     >
       <div className="flex items-center justify-between" aria-hidden="true">
         <span className="font-mono text-[11px] text-[hsl(var(--text-dim))]">
-          [{feature.idx}/07]
+          [{feature.idx}/14]
         </span>
         <span className="rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[hsl(var(--text-subtle))]">
           {feature.tag}

@@ -208,6 +208,154 @@ function LevelPreview() {
   );
 }
 
+function DungeonPreview() {
+  return (
+    <>
+      <ScreenLabel>世界 BOSS</ScreenLabel>
+      <div className="mt-5 flex items-center gap-3">
+        <span className="flex h-10 w-10 flex-col items-center justify-center rounded-[var(--radius-sm)] border border-[hsl(var(--signal-alert))] font-mono text-[10px] leading-tight text-[hsl(var(--signal-alert))]">
+          討伐
+        </span>
+        <div className="flex-1">
+          <div className="mb-1.5 font-mono text-[10px] text-[hsl(var(--text-subtle))]">
+            連段加成 ×1.3
+          </div>
+          <div className="h-1 w-full overflow-hidden rounded-full bg-[hsl(var(--border-faint))]">
+            <div className="h-full w-[38%] rounded-full bg-[hsl(var(--signal-alert))] group-hover:w-[88%] group-focus-visible:w-[88%] motion-safe:transition-[width] motion-safe:duration-700 motion-reduce:w-[88%]" />
+          </div>
+        </div>
+      </div>
+      <div className="mt-2 font-mono text-[10px] text-[hsl(var(--text-dim))]">
+        本週斷劍王：詛咒纏身中
+      </div>
+    </>
+  );
+}
+
+function FarmPreview() {
+  return (
+    <>
+      <ScreenLabel>🌹黑玫瑰 · 24H</ScreenLabel>
+      <div className="mt-4 font-mono text-[10px] text-[hsl(var(--text-subtle))]">
+        生長進度
+      </div>
+      <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-[hsl(var(--border-faint))]">
+        <div className="h-full w-[38%] rounded-full bg-[hsl(var(--signal-live))] group-hover:w-[88%] group-focus-visible:w-[88%] motion-safe:transition-[width] motion-safe:duration-700 motion-reduce:w-[88%]" />
+      </div>
+      <div className="mt-2 font-mono text-[10px] text-[hsl(var(--text-dim))]">
+        ⚠ 田鼠來襲，警戒中
+      </div>
+    </>
+  );
+}
+
+function GuildPreview() {
+  return (
+    <>
+      <ScreenLabel>公會會館 Lv.5</ScreenLabel>
+      <div className="mt-5 flex items-center gap-3">
+        <div className="relative h-6 w-8">
+          <i className="absolute bottom-0 left-0 h-2 w-8 rounded-[2px] bg-[hsl(var(--signal-tier2))] group-hover:-translate-y-[2px] group-focus-visible:-translate-y-[2px] motion-safe:transition-transform motion-safe:duration-300" />
+          <i className="absolute bottom-2 left-0 h-2 w-8 rounded-[2px] bg-[hsl(var(--signal-tier2)/0.8)] [transition-delay:60ms] group-hover:-translate-y-[5px] group-focus-visible:-translate-y-[5px] motion-safe:transition-transform motion-safe:duration-300" />
+          <i className="absolute bottom-4 left-0 h-2 w-8 rounded-[2px] bg-[hsl(var(--signal-tier2)/0.6)] [transition-delay:120ms] group-hover:-translate-y-[9px] group-focus-visible:-translate-y-[9px] motion-safe:transition-transform motion-safe:duration-300" />
+        </div>
+        <div className="font-mono text-[13px] text-[hsl(var(--text-body))]">
+          流水席{" "}
+          <em className="text-[11px] not-italic text-[hsl(var(--signal-tier2))]">
+            開席中
+          </em>
+        </div>
+      </div>
+      <div className="mt-3 font-mono text-[10px] text-[hsl(var(--text-dim))]">
+        全員 +25% 副本傷害 · 120 分鐘
+      </div>
+    </>
+  );
+}
+
+function TradePreview() {
+  return (
+    <>
+      <ScreenLabel>ORDER BOOK</ScreenLabel>
+      <svg
+        className="mt-3 h-[60px] w-full"
+        viewBox="0 0 240 70"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,60 L34,50 L68,54 L102,30 L136,38 L170,18 L204,26 L240,10 L240,70 L0,70 Z"
+          fill="hsl(var(--signal-live)/0.12)"
+        />
+        <path
+          d="M0,60 L34,50 L68,54 L102,30 L136,38 L170,18 L204,26 L240,10"
+          fill="none"
+          stroke="hsl(var(--signal-live))"
+          strokeWidth="2"
+          className="[stroke-dasharray:240] [stroke-dashoffset:240] group-hover:[stroke-dashoffset:0] group-focus-visible:[stroke-dashoffset:0] motion-safe:transition-[stroke-dashoffset] motion-safe:duration-[1100ms] motion-reduce:[stroke-dashoffset:0]"
+        />
+        <circle cx="240" cy="10" r="3.5" fill="hsl(var(--signal-live))" />
+      </svg>
+    </>
+  );
+}
+
+function TheftPreview() {
+  return (
+    <>
+      <ScreenLabel>夜間行動</ScreenLabel>
+      <div className="mt-6 flex items-center gap-2">
+        <span className="flex h-10 w-7 items-center justify-center rounded-[var(--radius-sm)] border border-[hsl(var(--border-subtle))] font-mono text-[13px] text-[hsl(var(--text-body))] [transition-delay:0ms] group-hover:-translate-y-1 group-hover:rotate-[-4deg] group-focus-visible:-translate-y-1 group-focus-visible:rotate-[-4deg] motion-safe:transition-transform motion-safe:duration-300">
+          🌆
+        </span>
+        <span className="flex h-10 w-7 items-center justify-center rounded-[var(--radius-sm)] border border-[hsl(var(--signal-sub))] font-mono text-[13px] text-[hsl(var(--signal-sub))] [transition-delay:60ms] group-hover:-translate-y-1 group-hover:rotate-[3deg] group-focus-visible:-translate-y-1 group-focus-visible:rotate-[3deg] motion-safe:transition-transform motion-safe:duration-300">
+          🌫️
+        </span>
+        <span className="flex h-10 w-7 items-center justify-center rounded-[var(--radius-sm)] border border-dashed border-[hsl(var(--border-faint))] font-mono text-[11px] text-[hsl(var(--text-dim))] [transition-delay:120ms] group-hover:-translate-y-1 group-focus-visible:-translate-y-1 motion-safe:transition-transform motion-safe:duration-300">
+          ?
+        </span>
+      </div>
+      <div className="mt-2 font-mono text-[11px] text-[hsl(var(--text-body))]">
+        逃脫成功 · 神不知鬼不覺
+      </div>
+    </>
+  );
+}
+
+function EventPreview() {
+  return (
+    <>
+      <ScreenLabel>⛏ 礦災修復</ScreenLabel>
+      <div className="mt-4 font-mono text-[10px] text-[hsl(var(--text-subtle))]">
+        全服捐獻進度
+      </div>
+      <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-[hsl(var(--border-faint))]">
+        <div className="h-full w-[38%] rounded-full bg-[hsl(var(--signal-cheer))] group-hover:w-[88%] group-focus-visible:w-[88%] motion-safe:transition-[width] motion-safe:duration-700 motion-reduce:w-[88%]" />
+      </div>
+      <div className="mt-2 font-mono text-[10px] text-[hsl(var(--text-dim))]">
+        達標全服 +buff · 48 小時
+      </div>
+    </>
+  );
+}
+
+function CookPreview() {
+  return (
+    <>
+      <ScreenLabel>🥡 食物倉庫</ScreenLabel>
+      <div className="mt-4 font-mono text-[10px] text-[hsl(var(--text-subtle))]">
+        新鮮度
+      </div>
+      <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-[hsl(var(--border-faint))]">
+        <div className="h-full w-[38%] rounded-full bg-[hsl(var(--signal-hype))] group-hover:w-[88%] group-focus-visible:w-[88%] motion-safe:transition-[width] motion-safe:duration-700 motion-reduce:w-[88%]" />
+      </div>
+      <div className="mt-2 font-mono text-[10px] text-[hsl(var(--text-dim))]">
+        炭烤加持 · 保鮮 +50%
+      </div>
+    </>
+  );
+}
+
 const PREVIEWS: Record<BibiFeatureKey, () => React.ReactNode> = {
   mine: MinePreview,
   fish: FishPreview,
@@ -216,6 +364,13 @@ const PREVIEWS: Record<BibiFeatureKey, () => React.ReactNode> = {
   stock: StockPreview,
   econ: EconPreview,
   level: LevelPreview,
+  dungeon: DungeonPreview,
+  farm: FarmPreview,
+  guild: GuildPreview,
+  trade: TradePreview,
+  theft: TheftPreview,
+  event: EventPreview,
+  cook: CookPreview,
 };
 
 export function BibiPreview({ k }: { k: BibiFeatureKey }) {
