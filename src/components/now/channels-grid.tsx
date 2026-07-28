@@ -11,7 +11,7 @@ export function ChannelsGrid() {
   return (
     <div
       data-module="channels-grid"
-      className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4"
+      className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3"
     >
       {CHANNELS.map(channel => (
         <ChannelTile

@@ -3,6 +3,7 @@
 import { HudHeader } from "@/components/now/hud-header";
 import { TwitchStream } from "@/components/now/twitch-stream";
 import { ChannelsGrid } from "@/components/now/channels-grid";
+import { DiscordServer } from "@/components/now/discord-server";
 import { WhisperTerminal } from "@/components/now/whisper-terminal";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 md:px-8">
         <TwitchStream />
         <ChannelsGrid />
+        <DiscordServer />
         <WhisperTerminal />
       </div>
     </main>

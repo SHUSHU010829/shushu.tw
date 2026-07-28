@@ -1,5 +1,5 @@
 export interface ChannelConfig {
-  id: "twitch" | "discord" | "youtube" | "twitter";
+  id: "twitch" | "youtube" | "twitter";
   displayName: string;
   handle: string;
   url: string;
@@ -14,14 +14,6 @@ export const CHANNELS: ChannelConfig[] = [
     handle: "shushu010829",
     url: "https://www.twitch.tv/shushu010829",
     accentToken: "--signal-sub",
-    statusText: "last · 2d",
-  },
-  {
-    id: "discord",
-    displayName: "Discord",
-    handle: "shushu010829",
-    url: "https://discord.gg/shushu010829",
-    accentToken: "--signal-tier2",
     statusText: "last · 2d",
   },
   {

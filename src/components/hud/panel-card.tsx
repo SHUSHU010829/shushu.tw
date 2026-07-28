@@ -1,12 +1,15 @@
 import { cn } from "@/lib/utils";
 
-type Accent = "live" | "idle" | "sub" | "cheer";
+type Accent = "live" | "idle" | "sub" | "cheer" | "tier2";
 
 const accentBorderMap: Record<Accent, string> = {
   live: "border-[hsl(var(--signal-live))] [--corner-color:var(--signal-live)]",
   idle: "border-[hsl(var(--border-faint))] [--corner-color:var(--border-subtle)]",
   sub: "border-[hsl(var(--signal-sub))] [--corner-color:var(--signal-sub)]",
-  cheer: "border-[hsl(var(--signal-cheer))] [--corner-color:var(--signal-cheer)]",
+  cheer:
+    "border-[hsl(var(--signal-cheer))] [--corner-color:var(--signal-cheer)]",
+  tier2:
+    "border-[hsl(var(--signal-tier2))] [--corner-color:var(--signal-tier2)]",
 };
 
 interface PanelCardProps {
