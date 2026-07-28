@@ -27,7 +27,7 @@ function MinePreview() {
         <div className="h-full w-[38%] rounded-full bg-[hsl(var(--signal-live))] group-hover:w-[88%] group-focus-visible:w-[88%] motion-safe:transition-[width] motion-safe:duration-700 motion-reduce:w-[88%]" />
       </div>
       <div className="mt-2 font-mono text-[10px] text-[hsl(var(--text-dim))]">
-        運氣加成 ×1.8　·　鎬 Lv.7
+        運氣加成 ×1.8 · 鎬 Lv.7
       </div>
     </>
   );
@@ -73,7 +73,7 @@ function FishPreview() {
         </g>
       </svg>
       <div className="absolute bottom-2 left-3 font-mono text-[10px] text-[hsl(var(--text-dim))]">
-        竹釣竿　·　魚袋 12 / 30
+        竹釣竿 · 魚袋 12 / 30
       </div>
     </>
   );
@@ -176,7 +176,7 @@ function EconPreview() {
         </div>
       </div>
       <div className="mt-3 font-mono text-[11px] text-[hsl(var(--text-dim))]">
-        每日簽到 +250　·　連續 47 天
+        每日簽到 +250 · 連續 47 天
       </div>
     </>
   );

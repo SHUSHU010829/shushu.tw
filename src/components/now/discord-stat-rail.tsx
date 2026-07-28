@@ -94,7 +94,7 @@ export function DiscordStatRail({ state }: { state: DiscordGuildState }) {
       <dl className="grid grid-cols-3 gap-0 border-y border-[hsl(var(--border-faint))] py-3 lg:flex lg:divide-x lg:divide-[hsl(var(--border-faint))] lg:border-y-0 lg:py-0">
         <div className="flex flex-col gap-1 px-2 lg:px-6">
           <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-muted))]">
-            // MEMBERS
+            {"// MEMBERS"}
           </dt>
           <dd className="font-mono text-[18px] tabular-nums leading-none text-[hsl(var(--text-body))] lg:text-[26px]">
             {formatCount(memberCount)}
@@ -103,7 +103,7 @@ export function DiscordStatRail({ state }: { state: DiscordGuildState }) {
         <div className="flex flex-col gap-1 px-2 lg:px-6">
           <dt className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-muted))]">
             <StatusDot state={ok ? "live" : "idle"} />
-            // ONLINE
+            {"// ONLINE"}
           </dt>
           <dd className="font-mono text-[18px] tabular-nums leading-none text-[hsl(var(--signal-live))] lg:text-[26px]">
             {formatCount(onlineCount)}
@@ -111,7 +111,7 @@ export function DiscordStatRail({ state }: { state: DiscordGuildState }) {
         </div>
         <div className="flex flex-col gap-1 px-2 lg:px-6">
           <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-muted))]">
-            // BOOSTS
+            {"// BOOSTS"}
           </dt>
           <dd className="font-mono text-[18px] tabular-nums leading-none text-[hsl(var(--signal-sub))] lg:text-[26px]">
             {formatCount(boostCount)}
