@@ -54,7 +54,7 @@ code:
 ---
 ### Requirement: HUD Header (implemented)
 
-The HUD header SHALL be a fixed-height (56px) bar displayed at the top of the home page, containing the site identity, live status indicator, and a real-time Taipei clock.
+The HUD header SHALL be a fixed-height (56px) bar displayed at the top of the home page, containing the site identity, a link to the song request page, live status indicator, and a real-time Taipei clock.
 
 #### Scenario: Header displays identity and clock
 
@@ -80,50 +80,12 @@ The HUD header SHALL be a fixed-height (56px) bar displayed at the top of the ho
 - **THEN** the clock area SHALL display `--:--:--` or be empty
 - **AND** the browser console SHALL contain zero hydration mismatch warnings related to the clock
 
+#### Scenario: Header includes a link to the song request page
 
-<!-- @trace
-source: add-cyberpunk-now-page
-updated: 2026-05-09
-code:
-  - src/components/ui/button.tsx
-  - src/components/theme-toggle.tsx
-  - CLAUDE.md
-  - src/components/ui/background-gradient.tsx
-  - src/components/hud/hud-label.tsx
-  - src/components/now/channel-tile.tsx
-  - src/app/luckyDraw/components/setting.tsx
-  - src/app/globals.css
-  - src/components/ui/sheet.tsx
-  - src/lib/now-page/channels.ts
-  - src/app/api/og/route.tsx
-  - src/app/luckyDraw/components/history.tsx
-  - src/app/luckyDraw/components/footer.tsx
-  - package.json
-  - src/components/ask-box.tsx
-  - src/components/footer.tsx
-  - src/components/hud/status-dot.tsx
-  - src/app/page.tsx
-  - src/components/now/whisper-terminal.tsx
-  - src/lib/twitch/helix.ts
-  - src/app/api/messageBoard.ts
-  - src/app/luckyDraw/components/drawButton.tsx
-  - tailwind.config.ts
-  - .env.example
-  - src/components/now/twitch-stream.tsx
-  - src/components/ui/meteors.tsx
-  - src/components/self-card.tsx
-  - src/app/layout.tsx
-  - src/components/now/channels-grid.tsx
-  - src/components/now/hud-header.tsx
-  - src/components/effects/crt-scanline.tsx
-  - src/components/social-link.tsx
-  - src/hooks/use-tpe-clock.ts
-  - src/lib/twitch/token-manager.ts
-  - src/app/api/twitch/stream/route.ts
-  - src/components/hud/panel-card.tsx
-  - src/hooks/use-twitch-stream.ts
-  - .spectra.yaml
--->
+- **WHEN** the user visits `/`
+- **THEN** the identity section of the HUD header SHALL display a link with the visible text `SONGS`
+- **AND** the link SHALL navigate to `/songs` within the same tab
+- **AND** the link SHALL NOT alter the layout, content, or behavior of the live status indicator or the clock
 
 ---
 ### Requirement: Twitch Stream Hero (implemented)
