@@ -1,52 +1,28 @@
-"use client";
+import { SongsView } from "@/components/songs/songs-view";
+import { getViewerSession } from "@/lib/auth/session";
+import type { ViewerSession } from "@/lib/auth/viewer";
+import { getSongCatalog, type CatalogState } from "@/lib/songs/catalog";
+import { getSongQueue } from "@/lib/songs/queue";
 
-import { HudLabel } from "@/components/hud/hud-label";
-import { PanelCard } from "@/components/hud/panel-card";
-import { TwitchLoginButton } from "@/components/songs/twitch-login-button";
-import { SongCatalog } from "@/components/songs/song-catalog";
-import { useSongQueue } from "@/hooks/use-song-queue";
+// 需要讀 session cookie 才能在首屏就決定要顯示「點歌」還是「登入後點歌」，
+// 所以整頁是動態渲染；上游曲庫／歌單仍走 Next 的 fetch 快取，不會每次請求都打
+// stream_api。頁面本身對未登入訪客一律可讀。
+export const dynamic = "force-dynamic";
 
-export default function SongsPage() {
-  const queue = useSongQueue();
-  const queueSongs = queue.status === "ok" ? queue.songs : [];
+export default async function SongsPage() {
+  const [catalog, queue, viewer] = await Promise.all([
+    getSongCatalog().catch<CatalogState>(() => ({ status: "unknown" })),
+    getSongQueue(),
+    getViewerSession(),
+  ]);
 
-  return (
-    <main className="flex min-h-screen flex-col bg-[hsl(var(--surface-void))]">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 md:px-8">
-        <div className="flex items-center justify-between">
-          <HudLabel label="SONGS · 點歌" />
-          <TwitchLoginButton />
-        </div>
+  const session: ViewerSession = viewer
+    ? {
+        status: "authenticated",
+        login: viewer.login,
+        displayName: viewer.displayName,
+      }
+    : { status: "anonymous" };
 
-        <PanelCard className="flex flex-col gap-2">
-          <HudLabel label="目前歌單" />
-          {queueSongs.length === 0 ? (
-            <span className="font-mono text-[12px] text-[hsl(var(--text-dim))]">
-              目前沒有排隊中的歌曲
-            </span>
-          ) : (
-            <ol className="flex flex-col gap-1">
-              {queueSongs.map(song => (
-                <li
-                  key={song.id}
-                  className="flex items-center justify-between font-mono text-[12px] text-[hsl(var(--text-body))]"
-                >
-                  <span>
-                    {song.song_title} — {song.singer}
-                  </span>
-                  {song.now_playing === 1 && (
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[hsl(var(--signal-live))]">
-                      NOW PLAYING
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ol>
-          )}
-        </PanelCard>
-
-        <SongCatalog />
-      </div>
-    </main>
-  );
+  return <SongsView catalog={catalog} queue={queue} session={session} />;
 }

@@ -5,7 +5,13 @@ import { PanelCard } from "@/components/hud/panel-card";
 import { HudLabel } from "@/components/hud/hud-label";
 import type { RepertoireSong } from "@/lib/songs/catalog";
 
-type RequestStatus = "idle" | "sending" | "sent" | "duplicate" | "error";
+type RequestStatus =
+  | "idle"
+  | "sending"
+  | "sent"
+  | "duplicate"
+  | "unauthenticated"
+  | "error";
 
 interface SongRowProps {
   song: RepertoireSong;
@@ -17,6 +23,7 @@ const STATUS_LABEL: Record<RequestStatus, string | null> = {
   sending: "送出中…",
   sent: "已送出 ✓",
   duplicate: "已有人點過",
+  unauthenticated: "請重新登入",
   error: "送出失敗",
 };
 
@@ -37,6 +44,9 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
         setStatus("sent");
       } else if (res.status === 409) {
         setStatus("duplicate");
+      } else if (res.status === 401) {
+        // session 過期：把人導回登入，而不是丟一個看不懂的「送出失敗」
+        setStatus("unauthenticated");
       } else {
         setStatus("error");
       }
@@ -44,6 +54,8 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
       setStatus("error");
     }
   }
+
+  const showLoginCta = !isAuthenticated || status === "unauthenticated";
 
   return (
     <PanelCard className="flex h-full flex-col gap-2">
@@ -65,7 +77,16 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
         </div>
       )}
 
-      {isAuthenticated ? (
+      {showLoginCta ? (
+        <a
+          href="/api/auth/twitch/login"
+          className="mt-auto rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-3 py-1 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-dim))] transition-colors duration-200 hover:border-[hsl(var(--border-subtle))]"
+        >
+          {status === "unauthenticated"
+            ? STATUS_LABEL.unauthenticated
+            : "登入後點歌"}
+        </a>
+      ) : (
         <button
           type="button"
           onClick={handleRequest}
@@ -74,13 +95,6 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
         >
           {STATUS_LABEL[status] ?? "點歌"}
         </button>
-      ) : (
-        <a
-          href="/api/auth/twitch/login"
-          className="mt-auto rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-3 py-1 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-dim))] transition-colors duration-200 hover:border-[hsl(var(--border-subtle))]"
-        >
-          登入後點歌
-        </a>
       )}
     </PanelCard>
   );
