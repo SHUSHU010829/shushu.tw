@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { PanelCard } from "@/components/hud/panel-card";
-import { HudLabel } from "@/components/hud/hud-label";
 import type { RepertoireSong } from "@/lib/songs/catalog";
 
 type RequestStatus =
@@ -22,7 +21,7 @@ const STATUS_LABEL: Record<RequestStatus, string | null> = {
   idle: null,
   sending: "送出中…",
   sent: "已送出 ✓",
-  duplicate: "已有人點過",
+  duplicate: "已點過",
   unauthenticated: "請重新登入",
   error: "送出失敗",
 };
@@ -59,8 +58,11 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
 
   return (
     <PanelCard className="flex h-full flex-col gap-2">
-      <HudLabel label={song.title} />
-      <span className="font-mono text-[12px] text-[hsl(var(--text-body))]">
+      {/* 歌名是主角，歌手與分類都只是附註 */}
+      <h3 className="text-[17px] font-semibold leading-tight text-[hsl(var(--text-body))]">
+        {song.title}
+      </h3>
+      <span className="font-mono text-[11px] tracking-[0.04em] text-[hsl(var(--text-subtle))]">
         {song.singer}
       </span>
 
@@ -69,7 +71,7 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
           {song.categories.map(category => (
             <span
               key={`${category.dimension}-${category.slug}`}
-              className="rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-[hsl(var(--text-muted))]"
+              className="rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-[hsl(var(--text-dim))]"
             >
               {category.label}
             </span>
@@ -77,25 +79,27 @@ export function SongRow({ song, isAuthenticated }: SongRowProps) {
         </div>
       )}
 
-      {showLoginCta ? (
-        <a
-          href="/api/auth/twitch/login"
-          className="mt-auto rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-3 py-1 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-dim))] transition-colors duration-200 hover:border-[hsl(var(--border-subtle))]"
-        >
-          {status === "unauthenticated"
-            ? STATUS_LABEL.unauthenticated
-            : "登入後點歌"}
-        </a>
-      ) : (
-        <button
-          type="button"
-          onClick={handleRequest}
-          disabled={status === "sending" || status === "sent"}
-          className="mt-auto rounded-[var(--radius-sm)] border border-[hsl(var(--border-subtle))] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--text-muted))] transition-colors duration-200 hover:enabled:border-[hsl(var(--signal-live))] hover:enabled:text-[hsl(var(--signal-live))] disabled:cursor-not-allowed disabled:opacity-30"
-        >
-          {STATUS_LABEL[status] ?? "點歌"}
-        </button>
-      )}
+      <div className="mt-auto flex justify-end pt-1">
+        {showLoginCta ? (
+          <a
+            href="/api/auth/twitch/login"
+            className="rounded-[var(--radius-sm)] border border-[hsl(var(--border-faint))] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[hsl(var(--text-dim))] transition-colors duration-200 hover:border-[hsl(var(--border-subtle))] hover:text-[hsl(var(--text-muted))]"
+          >
+            {status === "unauthenticated"
+              ? STATUS_LABEL.unauthenticated
+              : "登入後點歌"}
+          </a>
+        ) : (
+          <button
+            type="button"
+            onClick={handleRequest}
+            disabled={status === "sending" || status === "sent"}
+            className="rounded-[var(--radius-sm)] border border-[hsl(var(--border-subtle))] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[hsl(var(--text-muted))] transition-colors duration-200 hover:enabled:border-[hsl(var(--signal-live))] hover:enabled:text-[hsl(var(--signal-live))] disabled:cursor-not-allowed disabled:opacity-30"
+          >
+            {STATUS_LABEL[status] ?? "點歌"}
+          </button>
+        )}
+      </div>
     </PanelCard>
   );
 }
